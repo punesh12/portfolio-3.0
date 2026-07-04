@@ -1,0 +1,21 @@
+---
+description: Git commit and authorship rules
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Git Rules
+
+## Authorship
+
+- Commits must be authored only as the repository owner.
+- Never add `Co-authored-by: Cursor`, `Co-authored-by: cursoragent@cursor.com`, or any Cursor/agent co-author trailer.
+- Never attribute commits, co-authorship, or contribution credit to Cursor, an agent, or any AI identity.
+- Commit messages must contain only the intended subject/body — no agent metadata, trailers, or co-author lines.
+
+## Commits
+
+- Only commit when the user explicitly asks.
+- Follow the repository’s existing commit message style.
+- Do not push unless the user explicitly asks.
+- Do not amend commits unless the user explicitly asks and amend conditions are met.

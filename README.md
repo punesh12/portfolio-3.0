@@ -28,10 +28,21 @@ Personal portfolio for **Punesh Borkar**, Senior Frontend Engineer. Built with N
 
 ```bash
 npm install
+cp .env.example .env
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+### Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `NEXT_PUBLIC_GA_ID` | Google Analytics 4 measurement ID (e.g. `G-XXXXXXXXXX`) |
+
+Copy `.env.example` to `.env` and fill in values. `.env` is gitignored and never pushed.
+
+Set the same variables in your hosting provider (e.g. Vercel) for production.
 
 ## Scripts
 

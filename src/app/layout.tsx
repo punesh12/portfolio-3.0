@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter, JetBrains_Mono } from "next/font/google";
 
 import { AppShell } from "@/components/layout";
@@ -6,6 +7,8 @@ import { HERO_ROLE } from "@/constants/hero";
 import { SITE_NAME } from "@/constants/navigation";
 import { AppProviders } from "@/providers";
 import "@/styles/globals.css";
+
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -42,6 +45,7 @@ const RootLayout = ({ children }: RootLayoutProps) => (
       <AppProviders>
         <AppShell>{children}</AppShell>
       </AppProviders>
+      {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
     </body>
   </html>
 );
