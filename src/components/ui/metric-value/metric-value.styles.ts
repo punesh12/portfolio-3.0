@@ -7,5 +7,5 @@ export const metricValueVariants = cva([
 ]);
 
 export const metricValueArrowVariants = cva(
-  "mx-1 font-normal text-[var(--metric-card-value-muted)]",
+  "mx-1 inline-block font-normal text-[var(--metric-card-value-muted)] transition-transform duration-[var(--duration-hover)] group-hover/metric:translate-x-0.5",
 );

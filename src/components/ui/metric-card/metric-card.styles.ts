@@ -11,19 +11,21 @@ export const metricCardIconTones = [
 export type MetricCardIconTone = (typeof metricCardIconTones)[number];
 
 export const metricCardVariants = cva([
-  "relative h-full w-full min-h-[var(--metric-card-min-height)] overflow-hidden",
+  "group/metric relative h-full w-full min-h-[var(--metric-card-min-height)] overflow-hidden",
   "flex flex-col",
   "rounded-[var(--metric-card-radius)] border border-[var(--metric-card-border)]",
   "bg-[var(--metric-card-bg)] p-[var(--metric-card-padding)] shadow-[var(--metric-card-shadow)]",
   "transition-[border-color,box-shadow,transform]",
   "duration-[var(--duration-hover)] ease-[var(--easing-standard)]",
-  "hover:shadow-[var(--card-shadow-hover)]",
+  "hover:-translate-y-1 hover:border-[var(--primary)]/35 hover:shadow-[var(--card-shadow-hover)]",
 ]);
 
 export const metricCardIconVariants = cva(
   [
     "inline-flex size-8 shrink-0 items-center justify-center md:size-10",
     "rounded-[var(--radius-sm)]",
+    "transition-transform duration-[var(--duration-hover)] ease-[var(--easing-standard)]",
+    "group-hover/metric:scale-110",
     "[&_svg]:size-4 md:[&_svg]:size-5 [&_svg]:stroke-[1.75]",
   ],
   {

@@ -17,7 +17,7 @@ export const ABOUT_PARAGRAPHS = [
 ] as const;
 
 export const ABOUT_IMAGE = {
-  src: "/about/profile.png",
+  src: "/about/profile.webp",
   alt: "Punesh Borkar, Senior Frontend Engineer",
 };
 

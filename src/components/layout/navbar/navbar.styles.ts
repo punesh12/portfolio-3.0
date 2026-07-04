@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 export const navLinkStyles = cva(
   [
-    "relative inline-flex cursor-pointer items-center",
+    "group/nav relative inline-flex cursor-pointer items-center",
     "pb-3 font-mono text-sm font-semibold",
     "transition-colors duration-[var(--duration-hover)] ease-[var(--easing-standard)]",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2",
@@ -22,7 +22,22 @@ export const navLinkStyles = cva(
 );
 
 export const navLinkUnderlineStyles = cva(
-  "absolute inset-x-0 bottom-0 h-[3px] rounded-full bg-[var(--nav-underline)]",
+  [
+    "absolute inset-x-0 bottom-0 h-[3px] rounded-full bg-[var(--nav-underline)]",
+    "origin-left transition-transform duration-[var(--duration-hover)] ease-[var(--easing-standard)]",
+  ],
+  {
+    variants: {
+      active: {
+        true: "scale-x-100",
+        false:
+          "scale-x-0 group-hover/nav:scale-x-100 group-hover/nav:bg-[var(--nav-text-inactive)]",
+      },
+    },
+    defaultVariants: {
+      active: false,
+    },
+  },
 );
 
 export const mobileNavLinkStyles = cva(

@@ -21,7 +21,7 @@ export const PROJECT_ENTRIES: ProjectEntry[] = [
       "Open-source React design system — 50+ accessible primitives on Radix UI, Tailwind CSS v4 tokens, Next.js docs site, Storybook catalog, and Vitest. Published as @punesh12/lattice-ui on npm.",
     url: LATTICE_UI_LANDING_URL,
     githubUrl: LATTICE_UI_GITHUB_URL,
-    imageUrl: "/projects/lattice-ui.png",
+    imageUrl: "/projects/lattice-ui.webp",
     tags: ["React", "TypeScript", "Radix UI", "Tailwind CSS", "Storybook", "Turborepo"],
   },
   {
@@ -30,7 +30,7 @@ export const PROJECT_ENTRIES: ProjectEntry[] = [
       "Smart link management platform for Indian businesses with link shortening, analytics, team collaboration, and UPI Express links.",
     url: "https://bharatlinks.vercel.app/",
     githubUrl: "https://github.com/punesh12/bharatlinks",
-    imageUrl: "/projects/bharatlinks.png",
+    imageUrl: "/projects/bharatlinks.webp",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Redis", "Clerk", "Tailwind CSS"],
   },
   {
@@ -48,7 +48,7 @@ export const PROJECT_ENTRIES: ProjectEntry[] = [
       "A modern, developer-friendly dashboard to create, mock, and test APIs built with Next.js, TypeScript & Supabase.",
     url: "https://mockhubapp.vercel.app/",
     githubUrl: "https://github.com/punesh12/mockhub",
-    imageUrl: "/projects/mockhub.png",
+    imageUrl: "/projects/mockhub.webp",
     tags: ["Next.js", "TypeScript", "Supabase", "API"],
   },
   {
@@ -57,7 +57,7 @@ export const PROJECT_ENTRIES: ProjectEntry[] = [
       "A modern, responsive portfolio website featuring smooth scroll animations, dynamic navbar visibility, dark mode support, and an elegant bento grid layout. Built with Next.js and TypeScript for optimal performance and type safety.",
     url: "https://puneshborkar.vercel.app/",
     githubUrl: "https://github.com/punesh12/portfolio-2.0",
-    imageUrl: "/projects/portfolio.png",
+    imageUrl: "/projects/portfolio.webp",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
   },
 ];

@@ -169,6 +169,15 @@ const darkOnly = [
   ["--shadow-xl", "0 24px 64px rgba(0, 0, 0, 0.4)"],
 ];
 
+/** Tailwind prefixes mapped from semantic breakpoint tokens. */
+const tailwindBreakpoints = [
+  ["--breakpoint-sm", breakpoints.mobile],
+  ["--breakpoint-md", breakpoints.tablet],
+  ["--breakpoint-lg", breakpoints.desktop],
+  ["--breakpoint-xl", breakpoints.wide],
+  ["--breakpoint-2xl", breakpoints.max],
+];
+
 const css = `/* AUTO-GENERATED FILE — do not edit by hand.
  * Source: tokens/*.json
  * Regenerate: npm run tokens
@@ -180,6 +189,25 @@ ${declare([...lightColors, ...sharedTokens, ...aliases])}
 
 .dark {
 ${declare([...darkColors, ...darkOnly])}
+}
+
+/* Tailwind breakpoint scale — edit tokens/breakpoints.json only */
+@theme {
+${declare(tailwindBreakpoints)}
+}
+
+/* Responsive layout overrides — values from tokens/breakpoints.json */
+@media (width >= ${breakpoints.tablet}) {
+  :root {
+    --navbar-height: var(--navbar-height-desktop);
+    --metric-card-radius: var(--radius-2xl);
+    --metric-card-padding: var(--spacing-8);
+    --metric-card-value-size: 32px;
+    --metric-card-value-min-height: 2.5rem;
+    --metric-card-description-size: 10px;
+    --metric-card-description-min-height: 2.75rem;
+    --metric-card-min-height: 220px;
+  }
 }
 `;
 

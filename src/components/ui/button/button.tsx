@@ -53,7 +53,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             )}
             {children}
             {rightIcon && (
-              <span className="inline-flex shrink-0 [&>svg]:size-4" aria-hidden="true">
+              <span
+                className="inline-flex shrink-0 transition-transform duration-[var(--duration-hover)] group-hover/button:translate-x-0.5 [&>svg]:size-4"
+                aria-hidden="true"
+              >
                 {rightIcon}
               </span>
             )}

@@ -18,6 +18,7 @@ import {
   ABOUT_IMAGE,
   ABOUT_PARAGRAPHS,
 } from "@/constants/about";
+import { IMAGE_SIZES } from "@/constants/breakpoints";
 
 import { AboutFocusItem } from "./about-focus-item";
 
@@ -51,8 +52,9 @@ export const About = () => (
               alt={ABOUT_IMAGE.alt}
               fill
               className="object-cover"
-              sizes="(max-width: 1024px) 280px, 33vw"
-              priority={false}
+              sizes={IMAGE_SIZES.aboutPortrait}
+              quality={80}
+              loading="lazy"
             />
           </div>
         </ScrollReveal>

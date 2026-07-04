@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
   [
-    "inline-flex items-center justify-center gap-2",
+    "group/button inline-flex items-center justify-center gap-2",
     "cursor-pointer font-semibold whitespace-nowrap",
     "rounded-[var(--radius-sm)]",
     "border border-transparent",
@@ -12,6 +12,7 @@ export const buttonVariants = cva(
     "disabled:pointer-events-none disabled:cursor-not-allowed",
     "select-none",
     "active:scale-[0.98]",
+    "motion-safe:hover:-translate-y-px",
   ],
   {
     variants: {
@@ -19,6 +20,7 @@ export const buttonVariants = cva(
         primary: [
           "bg-[var(--btn-primary-bg)] text-[var(--btn-primary-fg)]",
           "hover:bg-[var(--btn-primary-hover)]",
+          "hover:shadow-[var(--btn-active-shadow)]",
           "disabled:bg-[var(--btn-disabled-bg)] disabled:text-[var(--btn-disabled-fg)] disabled:shadow-none",
         ],
         secondary: [

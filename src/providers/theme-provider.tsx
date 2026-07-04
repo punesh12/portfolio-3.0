@@ -15,7 +15,7 @@ export const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => (
     storageKey={THEME_STORAGE_KEY}
     enableSystem
     enableColorScheme
-    disableTransitionOnChange={false}
+    disableTransitionOnChange
     {...props}
   >
     {children}

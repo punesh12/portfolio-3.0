@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import Script from "next/script";
 
 import { AppShell } from "@/components/layout";
 import { HERO_ROLE } from "@/constants/hero";
-import { SITE_NAME } from "@/constants/navigation";
+import { SITE_LOGO_SRC, SITE_NAME } from "@/constants/navigation";
 import { AppProviders } from "@/providers";
 import "@/styles/globals.css";
 
@@ -14,12 +14,8 @@ const fontSans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-});
-
-const fontMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -30,6 +26,10 @@ export const metadata: Metadata = {
   description: `${SITE_NAME} — ${HERO_ROLE}. Frontend architecture, design systems, and high-performance product experiences.`,
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME }],
+  icons: {
+    icon: [{ url: SITE_LOGO_SRC, type: "image/svg+xml" }],
+    apple: SITE_LOGO_SRC,
+  },
 };
 
 interface RootLayoutProps {
@@ -39,13 +39,23 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => (
   <html lang="en" suppressHydrationWarning>
     <body
-      className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
+      className={`${fontSans.variable} font-sans antialiased`}
       suppressHydrationWarning
     >
       <AppProviders>
         <AppShell>{children}</AppShell>
       </AppProviders>
-      {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+      {gaId ? (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            strategy="lazyOnload"
+          />
+          <Script id="ga-init" strategy="lazyOnload">
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});`}
+          </Script>
+        </>
+      ) : null}
     </body>
   </html>
 );

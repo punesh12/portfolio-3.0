@@ -16,13 +16,13 @@ Personal portfolio for **Punesh Borkar**, Senior Frontend Engineer. Built with N
 
 ## Tech stack
 
-| Layer | Tools |
-| --- | --- |
+| Layer     | Tools                                         |
+| --------- | --------------------------------------------- |
 | Framework | Next.js 15 (App Router), React 19, TypeScript |
-| Styling | Tailwind CSS v4, CSS variables |
-| Motion | Framer Motion, GSAP ScrollTrigger, Lenis |
-| Theming | `next-themes` |
-| Tooling | ESLint, Prettier, token generator |
+| Styling   | Tailwind CSS v4, CSS variables                |
+| Motion    | Framer Motion, GSAP ScrollTrigger, Lenis      |
+| Theming   | `next-themes`                                 |
+| Tooling   | ESLint, Prettier, token generator             |
 
 ## Getting started
 
@@ -36,8 +36,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Environment variables
 
-| Variable | Description |
-| --- | --- |
+| Variable            | Description                                             |
+| ------------------- | ------------------------------------------------------- |
 | `NEXT_PUBLIC_GA_ID` | Google Analytics 4 measurement ID (e.g. `G-XXXXXXXXXX`) |
 
 Copy `.env.example` to `.env` and fill in values. `.env` is gitignored and never pushed.
@@ -46,15 +46,15 @@ Set the same variables in your hosting provider (e.g. Vercel) for production.
 
 ## Scripts
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Generate tokens, then start dev server (Turbopack) |
-| `npm run build` | Generate tokens, then production build |
-| `npm run start` | Start production server |
-| `npm run tokens` | Regenerate `src/styles/tokens.css` from `tokens/` |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format with Prettier |
-| `npm run format:check` | Check Prettier formatting |
+| Command                | Description                                        |
+| ---------------------- | -------------------------------------------------- |
+| `npm run dev`          | Generate tokens, then start dev server (Turbopack) |
+| `npm run build`        | Generate tokens, then production build             |
+| `npm run start`        | Start production server                            |
+| `npm run tokens`       | Regenerate `src/styles/tokens.css` from `tokens/`  |
+| `npm run lint`         | Run ESLint                                         |
+| `npm run format`       | Format with Prettier                               |
+| `npm run format:check` | Check Prettier formatting                          |
 
 ## Project structure
 
@@ -83,7 +83,7 @@ src/
 
 ## Design tokens
 
-Edit values in `tokens/` (colors, spacing, motion, layout, etc.), then run:
+Edit values in `tokens/` (colors, spacing, motion, layout, breakpoints, etc.), then run:
 
 ```bash
 npm run tokens
@@ -91,17 +91,31 @@ npm run tokens
 
 `predev` and `prebuild` run this automatically. Core CSS variables live in `src/styles/tokens.css` (generated — do not edit by hand). Component-level tokens and utilities stay in `src/styles/globals.css`.
 
+### Breakpoints
+
+Defined once in `tokens/breakpoints.json`:
+
+| Token     | Default | Tailwind prefix |
+| --------- | ------- | --------------- |
+| `mobile`  | 390px   | `sm:`           |
+| `tablet`  | 768px   | `md:`           |
+| `desktop` | 1024px  | `lg:`           |
+| `wide`    | 1280px  | `xl:`           |
+| `max`     | 1440px  | `2xl:`          |
+
+Use `md:` / `lg:` / `xl:` in components (mapped from tokens). In CSS, use `theme(--breakpoint-md)` etc. In JS, import `BREAKPOINT` / `IMAGE_SIZES` from `@/constants/breakpoints`.
+
 ## Sections
 
-| Section | Content |
-| --- | --- |
-| Hero | Role, headline, CTAs, social links, illustration |
-| Impact | Key metrics (performance, quality, delivery) |
-| About | Profile photo, bio, focus areas |
+| Section    | Content                                                       |
+| ---------- | ------------------------------------------------------------- |
+| Hero       | Role, headline, CTAs, social links, illustration              |
+| Impact     | Key metrics (performance, quality, delivery)                  |
+| About      | Profile photo, bio, focus areas                               |
 | Experience | Timeline with product links (PHYND, ArcadiaX, LNQ, Amplifier) |
-| Work | Featured projects |
-| Expertise | Skill marquees |
-| Contact | Email, LinkedIn, GitHub |
+| Work       | Featured projects                                             |
+| Expertise  | Skill marquees                                                |
+| Contact    | Email, LinkedIn, GitHub                                       |
 
 ## License
 

@@ -68,8 +68,8 @@
   --metric-card-icon-fg: var(--primary);
   --metric-card-value: var(--text-primary);
   --metric-card-value-muted: var(--text-placeholder);
-  --metric-card-value-size: 20px;
-  --metric-card-value-min-height: 1.5rem;
+  --metric-card-value-size: 28px;
+  --metric-card-value-min-height: 2.125rem;
   --metric-card-description: var(--text-primary);
   --metric-card-description-size: 9px;
   --metric-card-description-min-height: 2.25rem;
@@ -197,7 +197,7 @@
 /* ─── Tailwind v4 theme bridge ──────────────────────────────────────────── */
 @theme inline {
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-background: var(--background-primary);
   --color-foreground: var(--text-primary);
@@ -284,12 +284,6 @@
   --max-width-paragraph: var(--paragraph-width);
   --max-width-heading: var(--heading-width);
   --max-width-content: var(--content-width);
-
-  --breakpoint-mobile: 390px;
-  --breakpoint-tablet: 768px;
-  --breakpoint-desktop: 1024px;
-  --breakpoint-wide: 1280px;
-  --breakpoint-max: 1440px;
 }
 
 /* ─── Base styles ───────────────────────────────────────────────────────── */
@@ -393,21 +387,122 @@
   }
 }
 
-/* ─── Responsive layout tokens ──────────────────────────────────────────── */
-@media (min-width: 768px) {
-  :root {
-    --navbar-height: var(--navbar-height-desktop);
-    --metric-card-radius: var(--radius-2xl);
-    --metric-card-padding: var(--spacing-8);
-    --metric-card-value-size: 28px;
-    --metric-card-value-min-height: 2.125rem;
-    --metric-card-description-size: 10px;
-    --metric-card-description-min-height: 2.75rem;
-    --metric-card-min-height: 220px;
+/* ─── Hero micro-animations (CSS-only, no Framer on critical path) ───────── */
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* ─── Layout utilities ──────────────────────────────────────────────────── */
+@keyframes hero-grid-drift {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 24px 24px;
+  }
+}
+
+@keyframes hero-scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.hero-enter {
+  animation: hero-enter 400ms var(--easing-emphasized) both;
+}
+
+.hero-enter-delay-1 {
+  animation-delay: 80ms;
+}
+
+.hero-enter-delay-2 {
+  animation-delay: 160ms;
+}
+
+.hero-enter-delay-3 {
+  animation-delay: 240ms;
+}
+
+.hero-enter-delay-4 {
+  animation-delay: 400ms;
+}
+
+.hero-grid-drift {
+  animation: hero-grid-drift 18s linear infinite;
+}
+
+.hero-scroll-bounce {
+  display: inline-flex;
+  animation: hero-scroll-bounce 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter,
+  .hero-grid-drift,
+  .hero-scroll-bounce {
+    animation: none;
+  }
+}
+
+/* ─── Theme toggle circular reveal (from navbar button) ─────────────────── */
+html.theme-transitioning,
+html.theme-transitioning body,
+html.theme-transitioning * {
+  transition: none !important;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+html.theme-transitioning::view-transition-new(root) {
+  animation: theme-circle-reveal 600ms var(--easing-emphasized) both;
+}
+
+@keyframes theme-circle-reveal {
+  from {
+    clip-path: circle(0px at var(--theme-transition-x) var(--theme-transition-y));
+  }
+
+  to {
+    clip-path: circle(
+      var(--theme-transition-radius) at var(--theme-transition-x)
+        var(--theme-transition-y)
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transitioning::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+/* ─── Layout utilities (breakpoints via theme() → tokens/breakpoints.json) ─ */
 @layer utilities {
   .container-grid {
     width: 100%;
@@ -416,13 +511,13 @@
     padding-inline: var(--spacing-4);
   }
 
-  @media (min-width: 768px) {
+  @media (width >= theme(--breakpoint-md)) {
     .container-grid {
       padding-inline: var(--spacing-8);
     }
   }
 
-  @media (min-width: 1280px) {
+  @media (width >= theme(--breakpoint-xl)) {
     .container-grid {
       padding-inline: var(--container-padding);
     }
@@ -432,13 +527,13 @@
     padding-block: var(--spacing-16);
   }
 
-  @media (min-width: 768px) {
+  @media (width >= theme(--breakpoint-md)) {
     .section-padding {
       padding-block: var(--spacing-24);
     }
   }
 
-  @media (min-width: 1280px) {
+  @media (width >= theme(--breakpoint-xl)) {
     .section-padding {
       padding-block: var(--section-padding);
     }

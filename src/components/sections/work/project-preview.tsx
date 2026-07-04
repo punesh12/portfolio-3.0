@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { GitHubIcon } from "@/components/icons/social-icons";
-
+import { IMAGE_SIZES } from "@/constants/breakpoints";
 import { cn } from "@/lib/utils";
 
 interface ProjectPreviewProps {
@@ -45,8 +45,8 @@ export const ProjectPreview = ({
         src={imageUrl}
         alt={`${title} preview`}
         fill
-        className="object-cover"
-        sizes="(max-width: 768px) 100vw, 33vw"
+        className="object-cover transition-transform duration-500 ease-[var(--easing-emphasized)] group-hover/preview:scale-105"
+        sizes={IMAGE_SIZES.projectPreview}
         onError={() => setImageError(true)}
       />
 

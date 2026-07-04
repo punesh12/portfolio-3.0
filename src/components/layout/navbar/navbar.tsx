@@ -100,23 +100,24 @@ export const Navbar = ({ links = NAV_LINKS }: NavbarProps) => {
                       aria-current={active ? "true" : undefined}
                     >
                       {link.label}
-                      {active && (
-                        <span className={navLinkUnderlineStyles()} aria-hidden="true" />
-                      )}
+                      <span
+                        className={navLinkUnderlineStyles({ active })}
+                        aria-hidden="true"
+                      />
                     </a>
                   </li>
                 );
               })}
             </ul>
 
-            <div className="flex items-center justify-end gap-3">
+            <div className="flex items-center justify-end gap-2 md:gap-3">
               <ThemeToggle />
               <a
                 href={RESUME_URL}
                 download
                 className={cn(
                   buttonVariants({ variant: "primary", size: "md" }),
-                  "hidden sm:inline-flex",
+                  "hidden lg:inline-flex",
                 )}
               >
                 Download Resume
@@ -125,7 +126,7 @@ export const Navbar = ({ links = NAV_LINKS }: NavbarProps) => {
               <Button
                 variant="outline"
                 size="icon"
-                className="lg:hidden"
+                className="size-9 min-w-9 lg:hidden"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-navigation"
@@ -176,7 +177,7 @@ export const Navbar = ({ links = NAV_LINKS }: NavbarProps) => {
                   );
                 })}
               </ul>
-              <div className="border-border mt-4 border-t pt-4 sm:hidden">
+              <div className="border-border mt-4 border-t pt-4 lg:hidden">
                 <a
                   href={RESUME_URL}
                   download

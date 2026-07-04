@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 
-import { SITE_INITIALS, SITE_NAME } from "@/constants/navigation";
+import { SITE_LOGO_SRC, SITE_NAME } from "@/constants/navigation";
 import { cn } from "@/lib/utils";
 
 interface NavbarLogoProps {
@@ -10,21 +11,19 @@ interface NavbarLogoProps {
 export const NavbarLogo = ({ className }: NavbarLogoProps) => (
   <Link
     href="/"
-    className={cn("group flex items-center gap-3", className)}
+    className={cn("flex items-center gap-3", className)}
     aria-label={`${SITE_NAME} home`}
   >
-    <span
-      className={cn(
-        "relative flex size-10 shrink-0 items-center justify-center overflow-hidden",
-        "rounded-[var(--radius-sm)] bg-[var(--badge-blue-bg)]",
-        "font-mono text-sm font-bold text-[var(--nav-logo-fg)]",
-        "transition-transform duration-[var(--duration-hover)] group-hover:scale-105",
-      )}
-      aria-hidden="true"
-    >
-      {SITE_INITIALS}
-    </span>
-    <span className="text-foreground hidden font-semibold tracking-tight sm:inline">
+    <Image
+      src={SITE_LOGO_SRC}
+      alt=""
+      width={40}
+      height={35}
+      className="h-10 w-auto shrink-0 object-contain"
+      priority
+      unoptimized
+    />
+    <span className="text-foreground hidden font-semibold tracking-tight md:inline">
       {SITE_NAME}
     </span>
   </Link>

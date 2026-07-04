@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider";
+import { SmoothScrollLoader } from "@/providers/smooth-scroll-loader";
 import { ThemeProvider } from "@/providers/theme-provider";
 
 interface AppProvidersProps {
@@ -9,6 +9,6 @@ interface AppProvidersProps {
 
 export const AppProviders = ({ children }: AppProvidersProps) => (
   <ThemeProvider>
-    <SmoothScrollProvider>{children}</SmoothScrollProvider>
+    <SmoothScrollLoader>{children}</SmoothScrollLoader>
   </ThemeProvider>
 );

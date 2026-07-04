@@ -18,7 +18,7 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => (
       "group flex flex-col gap-4 rounded-[var(--radius-xl)] border border-[var(--card-border)]",
       "bg-[var(--card)] p-4 shadow-[var(--card-shadow)]",
       "transition-[border-color,box-shadow,transform] duration-[var(--duration-hover)] ease-[var(--easing-standard)]",
-      "hover:-translate-y-0.5 hover:border-[var(--border-strong)] hover:shadow-[var(--card-shadow-hover)]",
+      "hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:shadow-[var(--card-shadow-hover)]",
       className,
     )}
   >

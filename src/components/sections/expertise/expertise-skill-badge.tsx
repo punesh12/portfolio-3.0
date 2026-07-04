@@ -14,12 +14,14 @@ export const ExpertiseSkillBadge = ({ name, className }: ExpertiseSkillBadgeProp
   return (
     <div
       className={cn(
-        "inline-flex shrink-0 items-center gap-3 rounded-[var(--radius-md)] border border-[var(--card-border)]",
+        "group/skill inline-flex shrink-0 items-center gap-3 rounded-[var(--radius-md)] border border-[var(--card-border)]",
         "bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-xs)]",
+        "transition-[transform,border-color,box-shadow] duration-[var(--duration-hover)] ease-[var(--easing-standard)]",
+        "hover:-translate-y-0.5 hover:border-[var(--primary)]/30 hover:shadow-[var(--shadow-sm)]",
         className,
       )}
     >
-      <span className="inline-flex size-8 shrink-0 items-center justify-center">
+      <span className="inline-flex size-8 shrink-0 items-center justify-center transition-transform duration-[var(--duration-hover)] group-hover/skill:scale-110">
         {iconUrl ? (
           <Image
             src={iconUrl}

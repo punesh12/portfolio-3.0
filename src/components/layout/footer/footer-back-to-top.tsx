@@ -15,12 +15,17 @@ export const FooterBackToTop = ({ className }: FooterBackToTopProps) => (
     type="button"
     onClick={scrollToTop}
     className={cn(
-      "text-foreground inline-flex items-center gap-1 text-sm leading-none font-medium",
+      "group text-foreground inline-flex items-center gap-1.5 text-sm leading-none font-medium",
       "transition-colors duration-[var(--duration-hover)] hover:text-[var(--primary)]",
+      "active:scale-95",
       className,
     )}
   >
     {FOOTER_BACK_TO_TOP_LABEL}
-    <ArrowUp className="size-3.5" strokeWidth={2.5} aria-hidden="true" />
+    <ArrowUp
+      className="size-3.5 transition-transform duration-[var(--duration-hover)] group-hover:-translate-y-0.5"
+      strokeWidth={2.5}
+      aria-hidden="true"
+    />
   </button>
 );

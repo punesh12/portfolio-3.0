@@ -6,7 +6,8 @@ export const badgeVariants = cva(
     "rounded-[6px] border",
     "font-mono text-xs font-medium",
     "whitespace-nowrap",
-    "transition-colors duration-[var(--duration-hover)] ease-[var(--easing-standard)]",
+    "transition-[colors,transform] duration-[var(--duration-hover)] ease-[var(--easing-standard)]",
+    "hover:-translate-y-px",
   ],
   {
     variants: {

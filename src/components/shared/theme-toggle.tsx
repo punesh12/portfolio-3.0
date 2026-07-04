@@ -1,11 +1,12 @@
 "use client";
 
+import { useCallback, useRef, useSyncExternalStore } from "react";
 import { Monitor, Moon, Sun, type LucideIcon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useCallback, useSyncExternalStore } from "react";
 
 import { DEFAULT_THEME, THEME_APPEARANCE, getNextTheme } from "@/constants/theme";
 import { cn } from "@/lib/utils";
+import { runThemeTransition } from "@/utils/theme-transition";
 import type { Theme } from "@/types";
 
 const THEME_ICONS: Record<Theme, LucideIcon> = {
@@ -23,13 +24,24 @@ const useMounted = () => useSyncExternalStore(subscribe, getSnapshot, getServerS
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
   const mounted = useMounted();
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const activeTheme = (theme ?? DEFAULT_THEME) as Theme;
   const appearance = THEME_APPEARANCE[activeTheme];
   const Icon = THEME_ICONS[activeTheme];
 
   const handleToggle = useCallback(() => {
-    setTheme(getNextTheme(activeTheme));
+    const nextTheme = getNextTheme(activeTheme);
+    const origin = buttonRef.current;
+
+    if (!origin) {
+      setTheme(nextTheme);
+      return;
+    }
+
+    runThemeTransition(origin, () => {
+      setTheme(nextTheme);
+    });
   }, [activeTheme, setTheme]);
 
   if (!mounted) {
@@ -45,9 +57,10 @@ export const ThemeToggle = () => {
 
   return (
     <button
+      ref={buttonRef}
       type="button"
       className={cn(
-        "inline-flex size-9 cursor-pointer items-center justify-center rounded-[var(--radius-sm)]",
+        "relative z-[1] inline-flex size-9 cursor-pointer items-center justify-center rounded-[var(--radius-sm)]",
         "border border-transparent bg-transparent",
         "transition-[background-color,border-color,color,transform] duration-[var(--duration-hover)]",
         "hover:border-border hover:bg-[var(--card)]",
