@@ -1,0 +1,187 @@
+---
+description: Animation and scrolling standards
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Animation Standards
+
+The portfolio should feel premium, smooth and responsive.
+
+Animations must improve usability and storytelling.
+
+Never animate purely for decoration.
+
+## Smooth Scrolling
+
+Use Lenis for smooth scrolling.
+
+### Requirements
+
+- One global Lenis instance.
+- Do not create multiple instances.
+- Integrate with `requestAnimationFrame`.
+- Respect `prefers-reduced-motion`.
+- Smooth scrolling should not interfere with accessibility.
+- Anchor links should scroll smoothly.
+- Preserve browser history.
+
+## Motion
+
+Use Framer Motion for:
+
+- Component entrance
+- Hover effects
+- Buttons
+- Cards
+- Navbar
+- Theme transitions
+- Modal animations
+
+## GSAP
+
+Use GSAP only for:
+
+- ScrollTrigger
+- Sticky sections
+- Pinned storytelling
+- SVG line drawing
+- Hero transitions
+
+Never use GSAP for simple fades or hover effects.
+
+## CSS
+
+- Prefer CSS transitions whenever possible.
+- Use Framer Motion only when state-driven animation is required.
+- Avoid unnecessary JavaScript animations.
+
+## Performance
+
+Animations should maintain 60 FPS.
+
+- Avoid layout thrashing.
+- Prefer `transform` and `opacity`.
+
+### Avoid animating
+
+- `width`
+- `height`
+- `top`
+- `left`
+
+### Animate only
+
+- `opacity`
+- `transform`
+- `filter` (sparingly)
+
+## Accessibility
+
+- Respect `prefers-reduced-motion`.
+- Provide non-animated fallbacks.
+- Animations must never block interaction.
+
+## Timing
+
+| Context | Duration |
+|---------|----------|
+| Hover | 200ms |
+| Page Transition | 300ms |
+| Scroll Reveal | 500ms |
+| Theme Change | 300ms |
+
+- Use `ease-out` by default.
+- Avoid spring animations unless they improve usability.
+
+## Folder Structure
+
+Organize animation code from day one.
+
+```
+src/
+├── components/
+├── hooks/
+│   ├── use-lenis.ts
+│   ├── use-scroll-progress.ts
+│   ├── use-parallax.ts
+│   └── use-prefers-reduced-motion.ts
+├── animations/
+│   ├── fade.ts
+│   ├── stagger.ts
+│   ├── reveal.ts
+│   ├── page.ts
+│   ├── cards.ts
+│   ├── navbar.ts
+│   └── hero.ts
+├── lib/
+│   └── lenis.ts
+└── providers/
+    └── smooth-scroll-provider.tsx
+```
+
+- `lib/lenis.ts` — single Lenis instance factory/config.
+- `providers/smooth-scroll-provider.tsx` — global Lenis context wrapper.
+- `animations/` — reusable Framer Motion variants and GSAP timelines.
+- `hooks/` — scroll and motion utilities consumed by components.
+
+## Section Effects
+
+### Hero
+
+- Staggered text reveal
+- CTA fade-up
+- Background grid drift
+- Scroll indicator
+
+### Navbar
+
+- Blur on scroll
+- Active link indicator
+- Progress bar
+
+### Metrics
+
+- Count-up once
+- Fade-up
+- Border highlight on hover
+
+### Featured Projects
+
+- Sticky storytelling
+- Image reveal
+- Annotation lines
+- Slight parallax
+
+### Timeline
+
+- Line drawing
+- Card reveal
+- Active node scaling
+
+### Contact
+
+- Gentle gradient movement
+- Button hover
+- Social icon lift
+
+## Effects to Avoid with Lenis
+
+Lenis already changes the feel of scrolling. Avoid:
+
+- Heavy parallax everywhere
+- Mouse-following blobs
+- Scroll-jacking
+- Infinite floating cards
+- Full-page skew effects
+- Horizontal scrolling sections (unless there is a compelling reason)
+
+These often make a portfolio feel more like a demo than a polished product.
+
+## Lenis + GSAP Integration
+
+Integrate Lenis and GSAP properly — do not run them independently.
+
+- Let Lenis drive the scroll updates that ScrollTrigger listens to.
+- Keeps pinned sections, progress indicators, and animations synchronized.
+- Avoids jitter or desynchronization when both systems try to control scrolling separately.

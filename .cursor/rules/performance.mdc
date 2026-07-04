@@ -1,0 +1,62 @@
+---
+description: Performance rules
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Performance
+
+Always optimize for Core Web Vitals.
+
+## Rendering
+
+- Avoid unnecessary re-renders.
+- Avoid expensive computations inside render.
+- Use `React.memo` only when beneficial.
+- Use `useMemo` only for expensive calculations.
+- Use `useCallback` only when function identity matters.
+
+## Images
+
+- Next.js Image.
+- Lazy loading.
+- Responsive images.
+- Blur placeholders.
+
+## Dynamic Imports
+
+- Lazy load heavy components.
+- Use code splitting.
+
+## Bundle
+
+- Tree shaking.
+- Avoid unnecessary libraries.
+- Prefer lightweight alternatives.
+
+## Lists
+
+- Virtualize long lists.
+- Stable keys.
+
+## CSS
+
+- Avoid large CSS files.
+- Prefer Tailwind utility classes.
+- Extract reusable styles.
+
+## Network
+
+- Debounce search.
+- Throttle scroll.
+- Cache requests.
+- Avoid duplicate requests.
+
+## Lighthouse Targets
+
+| Category | Target |
+|----------|--------|
+| Performance | 95+ |
+| Accessibility | 100 |
+| SEO | 100 |
+| Best Practices | 100 |

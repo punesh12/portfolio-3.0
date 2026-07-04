@@ -1,0 +1,110 @@
+---
+description: UI/UX standards
+globs: ["**/*.tsx", "**/*.css"]
+alwaysApply: true
+---
+
+# UI Principles
+
+- Follow Mobile First.
+- Desktop should enhance—not replace—the mobile experience.
+
+## Responsive
+
+| Breakpoint | Width |
+|------------|-------|
+| Mobile | 390px |
+| Tablet | 768px |
+| Desktop | 1440px |
+
+- Use CSS Grid and Flexbox.
+- Never use fixed widths unless necessary.
+
+## Design Tokens
+
+All design values live in `tokens/` at the project root. Never hardcode colors, spacing, or typography in components.
+
+```
+tokens/
+├── colors.json
+├── typography.json
+├── spacing.json
+├── radius.json
+├── shadows.json
+├── motion.json
+├── layout.json
+├── z-index.json
+├── breakpoints.json
+├── semantic.json
+└── index.json
+```
+
+- Use **semantic tokens** (`semantic.json`) in components — e.g. `button.primaryBg`, `card.border`.
+- Reference raw tokens (`colors.json`, `spacing.json`) only in theme/config layers.
+- Map tokens to CSS variables at build time (Tailwind theme or `globals.css`).
+- Light and dark themes share the same token structure; swap values via `data-theme` or `.dark`.
+
+## Layout
+
+- 12-column grid.
+- Max width: 1280px.
+- Large whitespace.
+- Consistent spacing.
+- 8pt spacing system.
+
+## Components
+
+- Reusable.
+- Accessible.
+- Responsive.
+- Consistent variants.
+- No duplicate components.
+
+## Buttons
+
+- Primary
+- Secondary
+- Ghost
+- Outline
+- Icon
+
+## Cards
+
+- Consistent padding.
+- Consistent radius.
+- Consistent elevation.
+
+## Icons
+
+- Lucide React only.
+- Outline icons.
+- 2px stroke.
+
+## Images
+
+- Lazy load.
+- Rounded corners.
+- Proper aspect ratios.
+
+## Animations
+
+- Subtle.
+- Purposeful.
+- Never decorative.
+- Use Framer Motion.
+- Use GSAP only for scroll storytelling.
+- Use CSS transitions where possible.
+
+| Context | Duration |
+|---------|----------|
+| Hover | 200ms |
+| Page | 300ms |
+
+- Avoid excessive animation.
+
+## Theme
+
+- Light
+- Dark
+- Use CSS variables.
+- No duplicated themes.

@@ -1,0 +1,104 @@
+{
+  "light": {
+    "page": {
+      "background": "color.light.background.primary",
+      "text": "color.light.text.primary",
+      "textMuted": "color.light.text.muted"
+    },
+    "navbar": {
+      "background": "color.light.surface.primary",
+      "border": "color.light.border.subtle",
+      "text": "color.light.text.primary",
+      "textActive": "color.light.primary.600"
+    },
+    "button": {
+      "primaryBg": "color.light.primary.600",
+      "primaryBgHover": "color.light.primary.700",
+      "primaryText": "color.light.text.inverse",
+      "secondaryBg": "color.light.secondary.DEFAULT",
+      "secondaryBgHover": "color.light.secondary.hover",
+      "ghostText": "color.light.text.secondary",
+      "ghostTextHover": "color.light.text.primary"
+    },
+    "card": {
+      "background": "color.light.card.DEFAULT",
+      "backgroundHover": "color.light.card.hover",
+      "border": "color.light.border.DEFAULT",
+      "text": "color.light.text.primary",
+      "textMuted": "color.light.text.muted"
+    },
+    "input": {
+      "background": "color.light.surface.primary",
+      "border": "color.light.border.DEFAULT",
+      "borderFocus": "color.light.focus",
+      "text": "color.light.text.primary",
+      "placeholder": "color.light.text.placeholder"
+    },
+    "timeline": {
+      "line": "color.light.timeline",
+      "node": "color.light.primary.500",
+      "nodeActive": "color.light.primary.600"
+    },
+    "hero": {
+      "grid": "color.light.grid",
+      "accent": "color.light.accent.DEFAULT"
+    },
+    "status": {
+      "success": "color.light.success.DEFAULT",
+      "warning": "color.light.warning.DEFAULT",
+      "danger": "color.light.danger.DEFAULT",
+      "info": "color.light.info.DEFAULT"
+    }
+  },
+  "dark": {
+    "page": {
+      "background": "color.dark.background.primary",
+      "text": "color.dark.text.primary",
+      "textMuted": "color.dark.text.muted"
+    },
+    "navbar": {
+      "background": "color.dark.surface.primary",
+      "border": "color.dark.border.subtle",
+      "text": "color.dark.text.primary",
+      "textActive": "color.dark.primary.400"
+    },
+    "button": {
+      "primaryBg": "color.dark.primary.500",
+      "primaryBgHover": "color.dark.primary.400",
+      "primaryText": "color.dark.text.inverse",
+      "secondaryBg": "color.dark.secondary.DEFAULT",
+      "secondaryBgHover": "color.dark.secondary.hover",
+      "ghostText": "color.dark.text.secondary",
+      "ghostTextHover": "color.dark.text.primary"
+    },
+    "card": {
+      "background": "color.dark.card.DEFAULT",
+      "backgroundHover": "color.dark.card.hover",
+      "border": "color.dark.border.DEFAULT",
+      "text": "color.dark.text.primary",
+      "textMuted": "color.dark.text.muted"
+    },
+    "input": {
+      "background": "color.dark.surface.primary",
+      "border": "color.dark.border.DEFAULT",
+      "borderFocus": "color.dark.focus",
+      "text": "color.dark.text.primary",
+      "placeholder": "color.dark.text.placeholder"
+    },
+    "timeline": {
+      "line": "color.dark.timeline",
+      "node": "color.dark.primary.400",
+      "nodeActive": "color.dark.primary.300"
+    },
+    "hero": {
+      "grid": "color.dark.grid",
+      "accent": "color.dark.accent.DEFAULT"
+    },
+    "status": {
+      "success": "color.dark.success.DEFAULT",
+      "warning": "color.dark.warning.DEFAULT",
+      "danger": "color.dark.danger.DEFAULT",
+      "info": "color.dark.info.DEFAULT"
+    }
+  }
+}

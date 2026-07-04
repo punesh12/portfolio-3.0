@@ -1,0 +1,14 @@
+{
+  "desktopWidth": "1440px",
+  "contentWidth": "1280px",
+  "navbarHeight": "80px",
+  "footerHeight": "320px",
+  "sectionPadding": "160px",
+  "cardGap": "32px",
+  "gridColumns": 12,
+  "gridGap": "32px",
+  "containerPadding": "80px",
+  "heroContentWidth": "520px",
+  "paragraphWidth": "680px",
+  "headingWidth": "720px"
+}

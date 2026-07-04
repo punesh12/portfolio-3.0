@@ -1,0 +1,12 @@
+{
+  "color": "./colors.json",
+  "spacing": "./spacing.json",
+  "radius": "./radius.json",
+  "shadow": "./shadows.json",
+  "motion": "./motion.json",
+  "layout": "./layout.json",
+  "zIndex": "./z-index.json",
+  "breakpoints": "./breakpoints.json",
+  "typography": "./typography.json",
+  "semantic": "./semantic.json"
+}

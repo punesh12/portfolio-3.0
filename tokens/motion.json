@@ -1,0 +1,20 @@
+{
+  "duration": {
+    "fast": "150ms",
+    "normal": "250ms",
+    "slow": "350ms",
+    "page": "500ms",
+    "hover": "200ms",
+    "theme": "300ms",
+    "scrollReveal": "500ms"
+  },
+  "easing": {
+    "standard": "ease-out",
+    "emphasized": "cubic-bezier(0.22,1,0.36,1)"
+  },
+  "opacity": {
+    "disabled": 0.5,
+    "hover": 0.9,
+    "pressed": 0.8
+  }
+}

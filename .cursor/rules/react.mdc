@@ -1,0 +1,70 @@
+---
+description: React coding standards
+globs: ["**/*.tsx"]
+alwaysApply: true
+---
+
+# React Rules
+
+- Use Functional Components only.
+- Never use Class Components.
+- Always use Hooks.
+- Prefer Server Components where applicable.
+- Use Client Components only when required.
+
+## Components
+
+- One component = one responsibility.
+- Extract reusable UI.
+- Keep components under 200 lines.
+- Split large components.
+
+## Props
+
+- Always strongly type props.
+- Prefer destructuring.
+- Avoid unnecessary props.
+
+## State
+
+- Keep state local.
+- Lift state only when necessary.
+- Avoid prop drilling.
+- Use Context only for truly global state.
+- Use Zustand only if state becomes complex.
+
+## Effects
+
+- Avoid unnecessary `useEffect`.
+- Never use `useEffect` for derived state.
+- Always clean up effects.
+
+## Keys
+
+- Never use array index as key.
+
+## Rendering
+
+- Avoid nested ternaries.
+- Extract render helpers.
+- Keep JSX readable.
+
+## Memoization
+
+Only use `useMemo`, `useCallback`, and `React.memo` when profiling proves a benefit.
+
+- Do not overuse memoization.
+
+## Forms
+
+- Controlled inputs.
+- Strong typing.
+- Validation.
+
+## Accessibility
+
+- Semantic HTML.
+- ARIA only when necessary.
+- Keyboard navigation.
+- Visible focus states.
+- 44px minimum touch targets.

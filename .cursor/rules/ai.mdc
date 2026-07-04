@@ -1,0 +1,39 @@
+---
+description: AI coding rules
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# AI Coding Rules
+
+When generating code:
+
+- Never generate placeholder implementations.
+- Never leave TODO comments unless requested.
+- Produce production-ready code.
+- Prefer readability over cleverness.
+- Keep code self-documenting.
+- Add comments only for complex business logic.
+- Avoid duplicate logic.
+- Reuse existing components before creating new ones.
+- Prefer composition.
+- Keep imports clean.
+- Remove unused code.
+- Follow existing project conventions.
+- Do not introduce new dependencies unless necessary.
+- Optimize for maintainability first, then brevity.
+
+## Before Generating Code
+
+Always ask:
+
+1. Can this be reused?
+2. Can this be simplified?
+3. Will this cause unnecessary re-renders?
+4. Is this accessible?
+5. Is this responsive?
+6. Does this follow the existing design tokens?
+7. Is there a simpler solution with fewer dependencies?
+8. Would this pass a senior frontend code review?
+
+If any answer is "No", refactor before returning the final code.

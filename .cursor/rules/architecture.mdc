@@ -1,0 +1,122 @@
+---
+description: Project architecture and coding standards
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# General Principles
+
+- Follow SOLID principles.
+- Follow DRY. Never duplicate logic.
+- Prefer composition over inheritance.
+- Keep files focused on a single responsibility.
+- Prefer reusable abstractions over copy-paste.
+- Avoid premature abstraction.
+- Keep components and functions small.
+
+## TypeScript
+
+- Always use TypeScript.
+- Never use `any`.
+- Prefer `unknown` over `any`.
+- Use explicit interfaces for props.
+- Prefer `type` for unions.
+- Use enums only when necessary.
+- Enable strict typing.
+
+## Constants
+
+- Store reusable values in constants.
+- Constant names must be UPPER_SNAKE_CASE.
+- Never hardcode magic numbers.
+
+```ts
+const MAX_UPLOAD_SIZE = 10;
+const NAVBAR_HEIGHT = 80;
+```
+
+## Imports
+
+### Import Order
+
+1. React
+2. External libraries
+3. Internal modules
+4. Components
+5. Hooks
+6. Utilities
+7. Types
+8. Styles
+
+- Prefer absolute imports.
+
+## Naming
+
+| Kind | Convention |
+|------|------------|
+| Components | PascalCase |
+| Hooks | `useSomething` |
+| Functions | camelCase |
+| Constants | UPPER_SNAKE_CASE |
+| Types | PascalCase |
+| Interfaces | PascalCase |
+| Files | kebab-case.tsx |
+
+## Functions
+
+- Use ES6 arrow functions.
+- Prefer pure functions.
+- Keep functions under 30 lines whenever practical.
+- Extract reusable logic.
+
+## Error Handling
+
+- Never silently ignore errors.
+- Handle expected errors.
+- Use Error Boundaries where appropriate.
+
+## Folder Structure
+
+Feature-first architecture with dedicated animation layers.
+
+```
+tokens/
+├── colors.json
+├── typography.json
+├── spacing.json
+├── radius.json
+├── shadows.json
+├── motion.json
+├── layout.json
+├── z-index.json
+├── breakpoints.json
+├── semantic.json
+└── index.json
+
+src/
+├── components/
+├── features/
+├── hooks/
+│   ├── use-lenis.ts
+│   ├── use-scroll-progress.ts
+│   ├── use-parallax.ts
+│   └── use-prefers-reduced-motion.ts
+├── animations/
+│   ├── fade.ts
+│   ├── stagger.ts
+│   ├── reveal.ts
+│   ├── page.ts
+│   ├── cards.ts
+│   ├── navbar.ts
+│   └── hero.ts
+├── lib/
+│   └── lenis.ts
+├── providers/
+│   └── smooth-scroll-provider.tsx
+├── services/
+├── utils/
+├── constants/
+└── types/
+```
+
+See `animation.mdc` for animation folder conventions, section effects, and Lenis/GSAP integration.
