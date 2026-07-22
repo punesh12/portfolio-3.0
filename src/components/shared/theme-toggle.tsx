@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 
 import { DEFAULT_THEME, THEME_APPEARANCE, getNextTheme } from "@/constants/theme";
 import { cn } from "@/lib/utils";
-import { runThemeTransition } from "@/utils/theme-transition";
+import { applyThemeClass, runThemeTransition } from "@/utils/theme-transition";
 import type { Theme } from "@/types";
 
 const THEME_ICONS: Record<Theme, LucideIcon> = {
@@ -35,13 +35,12 @@ export const ThemeToggle = () => {
     const origin = buttonRef.current;
 
     if (!origin) {
+      applyThemeClass(nextTheme);
       setTheme(nextTheme);
       return;
     }
 
-    runThemeTransition(origin, () => {
-      setTheme(nextTheme);
-    });
+    runThemeTransition(origin, nextTheme, setTheme);
   }, [activeTheme, setTheme]);
 
   if (!mounted) {

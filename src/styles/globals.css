@@ -459,16 +459,16 @@
 }
 
 /* ─── Theme toggle circular reveal (from navbar button) ─────────────────── */
-html.theme-transitioning,
-html.theme-transitioning body,
-html.theme-transitioning * {
-  transition: none !important;
-}
-
+/* Default cross-fade disabled; circle is driven by WAAPI in theme-transition.ts */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
+}
+
+::view-transition-group(root) {
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
 }
 
 ::view-transition-old(root) {
@@ -477,29 +477,6 @@ html.theme-transitioning * {
 
 ::view-transition-new(root) {
   z-index: 9999;
-}
-
-html.theme-transitioning::view-transition-new(root) {
-  animation: theme-circle-reveal 600ms var(--easing-emphasized) both;
-}
-
-@keyframes theme-circle-reveal {
-  from {
-    clip-path: circle(0px at var(--theme-transition-x) var(--theme-transition-y));
-  }
-
-  to {
-    clip-path: circle(
-      var(--theme-transition-radius) at var(--theme-transition-x)
-        var(--theme-transition-y)
-    );
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html.theme-transitioning::view-transition-new(root) {
-    animation: none;
-  }
 }
 
 /* ─── Layout utilities (breakpoints via theme() → tokens/breakpoints.json) ─ */
